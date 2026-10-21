@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rakshak – SOS and Live Tracking</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="wrap">
+ <div class="top"><h1>Rakshak</h1><button class="btn hidden" id="out">Log out</button></div>
+
+ <section class="card" id="authc">
+  <h2>Sign in</h2><p class="mute">Create an account to save contacts and send alerts.</p>
+  <input id="n" placeholder="Your name (sign up only)" autocomplete="name">
+  <input id="e" type="email" placeholder="Email" autocomplete="email">
+  <input id="p" type="password" placeholder="Password (8+ characters)" autocomplete="current-password">
+  <div class="err" id="aerr"></div>
+  <div class="row"><button class="btn pri" id="login">Log in</button><button class="btn" id="reg">Sign up</button></div>
+ </section>
+
+ <div id="app" class="hidden">
+  <section class="card" style="text-align:center">
+   <h2>Hold if you need help</h2>
+   <div class="sosw" id="sosw">
+    <svg viewBox="0 0 100 100" width="100%" height="100%"><circle cx="50" cy="50" r="46" fill="none" stroke="var(--line)" stroke-width="4"/><circle id="ringp" cx="50" cy="50" r="46" fill="none" stroke="var(--sos)" stroke-width="4" stroke-linecap="round" stroke-dasharray="289 289" stroke-dashoffset="289"/></svg>
+    <button id="sos" aria-label="Hold for two seconds to send an alert">SOS</button>
+   </div>
+   <p class="mute">Hold for 2 seconds. Your contacts get a live tracking link by SMS.</p>
+  </section>
+
+  <section class="card">
+   <h2>Live location</h2>
+   <p class="mute" id="status">Not sharing. Start sharing to let your contacts follow you.</p>
+   <div id="share"></div>
+   <div class="row" style="margin-top:8px"><button class="btn pri" id="go">Start sharing</button><button class="btn ok hidden" id="stop">I’m safe, stop sharing</button></div>
+  </section>
+
+  <section class="card">
+   <h2>Trusted contacts</h2>
+   <p class="mute">Up to five people who receive your alerts.</p>
+   <input id="cn" placeholder="Name"><input id="cp" type="tel" placeholder="Phone with country code, e.g. +91…">
+   <div class="err" id="cerr"></div>
+   <button class="btn pri" id="add">Add contact</button>
+   <div id="list" style="margin-top:10px"></div>
+  </section>
+ </div>
+</div>
+
+<script src="/app.js"></script>
+</body>
+</html>
